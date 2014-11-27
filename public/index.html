@@ -6,7 +6,7 @@
 	<style type="text/css">
 
 	@import url(http://fonts.googleapis.com/css?family=Roboto);
-	@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400italic);
+	/*@import url(http://fonts.googleapis.com/css?family=Josefin+Slab:400italic);*/
 
 	html, body {
 		height: 100%;
@@ -30,7 +30,7 @@
 		
 	.note-taker {
 		font-size:1.6rem;
-		font-weight:400;
+		font-weight:100;
 		line-height:1.4;
 		padding:4rem;
 		margin:0;
@@ -69,10 +69,33 @@
 
 </head>
 <body>
-	<textarea contenteditable class="note-taker" placeholder="&para;" autofocus></textarea>
+	<textarea contenteditable class="note-taker" placeholder="&para;" autofocus id="notes"></textarea>
 
 <script type="text/javascript">
+
+	var notes = document.getElementById('notes');
+
+	function saveNotes() {
+		window['localStorage']['notes'] = notes.textContent;
+	}
+
+	function has_storage() {
+		try {
+			return 'localStorage' in window && window['localStorage'] !== null;
+		} catch (e) {
+			return false;
+		}
+	}
+	
+	if (window.addEventListener) {
+		notes.addEventListener("onchange", saveNotes, false);
+	} else {
+		notes.attachEvent("onchange", saveNotes);
+	};
+
+	// Loading fade in animation
 	window.onload = function() {
 		document.querySelector('body').className += ' active';
 	};
+
 </script>
