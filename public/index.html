@@ -17,15 +17,17 @@
 
 	body {
 		opacity: 0;
-		-webkit-transition:opacity 0.6s ease-in-out 0.2s;
-		-moz-transition:opacity 0.6s ease-in-out 0.2s;
-		-o-transition:opacity 0.6s ease-in-out 0.2s;
-		-ms-transition:opacity 0.6s ease-in-out 0.2s;
-		transition:opacity 0.6s ease-in-out 0.2s;
+		background: #e1e1e1;
+		-webkit-transition:		opacity 0.6s ease-in-out 0.2s, background 0.8s ease-in-out;
+		-moz-transition: 		opacity 0.6s ease-in-out 0.2s, background 0.8s ease-in-out;
+		-o-transition:			opacity 0.6s ease-in-out 0.2s, background 0.8s ease-in-out;
+		-ms-transition:			opacity 0.6s ease-in-out 0.2s, background 0.8s ease-in-out;
+		transition:				opacity 0.6s ease-in-out 0.2s, background 0.8s ease-in-out;
 	}
 
 	body.active {
 		opacity: 1;
+		background: #fff;
 	}
 		
 	.note-taker {
